@@ -1,0 +1,28 @@
+{% extends "base/base.html" %}
+{% block titulo %}Inicio{% endblock %}
+{% block contenido %}
+<div class="text-center">
+    <h1 class="display-4">Tema 3</h1>
+    <p>Depliegue de aplicación</p>
+</div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="mb-3 mt-3">
+                <form method="post" action="{{ url_for('public.index') }}">
+                    <label class="form-label">Mensaje</label>
+                    <textarea name="msg" class="form-control"></textarea>
+                    <input type="submit" value="Enviar" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+    {% if msg %}
+    <div class="row">
+        <div class="alert alert-primary alert-dismissible fade show">
+            <strong>{{ msg | safe }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}
